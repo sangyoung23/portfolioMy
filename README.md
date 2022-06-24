@@ -1,3 +1,3 @@
 # 이력서 홈페이지
-About me 부분 마무리 작업 <br>
-퀵 메뉴로 아이콘들 스크롤 이벤트 만들기
+section별 크기 맞추기 <br>
+archiving 작업
