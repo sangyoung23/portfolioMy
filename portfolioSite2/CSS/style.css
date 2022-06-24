@@ -2,21 +2,21 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition-duration: 0.8s;
 }
 
 /* 전체영역 */
 #wrap {
   width: 100%;
-  height: 9000px;
-  padding: 80px;
-  overflow: hidden;
+  height: 100%;
+  padding: 70px;
 }
 
 /* main */
 #main {
   position: relative;
   width: 100%;
-  height: 1080px;
+  height: 100vh;
   margin-bottom: 100px;
   border: 3px solid black;
   border-radius: 10px;
@@ -63,7 +63,7 @@
 /* About me */
 #aboutme {
   width: 100%;
-  height: 1080px;
+  height: 100vh;
   border: 3px solid black;
   border-radius: 10px;
 }
@@ -86,16 +86,46 @@
 #aboutme article div:first-child .yong {
   width: 100%;
   height: 100%;
+  border: 1px solid gray;
 }
 #aboutme article div:last-child {
+  display: flex;
+  flex-direction: column;
   width: 50%;
   padding: 30px;
 }
 #aboutme article div:last-child h1 {
-  font-size: 22px;
+  font-size: 25px;
+  font-weight: 700;
   line-height: 1.4em;
-  margin-top: 25px;
+  margin: 25px 0 40px;
 }
+#aboutme article div:last-child div {
+  display: flex;
+  justify-content: space-between;  
+  width: 100%;
+  margin-bottom: 30px;
+}
+#aboutme article div:last-child div p {
+  line-height: 1.5em;
+}
+#aboutme article div:last-child .coding {
+  width: 100%;
+  height: 580px;
+  margin-bottom: 50px;
+  border: 1px solid gray;
+}
+#aboutme article div:last-child h2 {
+  font-size: 22px;
+  text-align: center;
+}
+/* archiving */
+#archiving {
+  width: 100%;
+  height: 100vh;
+  background-color: tomato;
+}
+
 
 
 
@@ -131,4 +161,42 @@
 }
 #q_mn ul.nav li a:hover {
   color: tomato;
+}
+/* 퀵 메뉴2 */
+#q_icon {
+  position: absolute;
+  left: 0;
+  top: 400px;
+  border-radius: 50%;
+  opacity: 0.8;
+  z-index: 9999;
+}
+#q_icon ul.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+#q_icon ul.nav li {
+  margin-bottom: 15px;
+}
+#q_icon ul.nav a img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: all 0.8s;
+  background-color: black;
+}
+#q_icon ul.nav a img:hover {  
+  opacity: 0.5;
+}
+#q_icon ul.nav li a i {
+  font-size: 31px;
+  transition: all 0.8s;
+  cursor: pointer;
+}
+#q_icon ul.nav li a i:hover {
+  opacity: 0.5;
 }

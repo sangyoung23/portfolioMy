@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./JS/jquery.js"></script>
     <script src="./JS/q_mn.js"></script>
+    <script src="https://kit.fontawesome.com/05d3201823.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./CSS/reset.css">
     <link rel="stylesheet" href="./CSS/style.css">
     <title>selfpage</title>
@@ -14,16 +15,16 @@
     <!-- 전체영역 -->
     <div id="wrap">
         <!-- 메인영역 -->
-        <section id="main">
+        <section id="main" class="section">
             <!-- backgroundIMG -->
             <header id="head">
                 <nav>
                     <ul>
-                        <li><a href="#">About me</a></li>
-                        <li><a href="#">Skill</a></li>
-                        <li><a href="#">Archiving</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#aboutme">ABOUT ME</a></li>
+                        <li><a href="#">SKILL</a></li>
+                        <li><a href="#">ARCHIVING</a></li>
+                        <li><a href="#">PROJECT</a></li>
+                        <li><a href="#">CONTACT</a></li>
                     </ul>
                 </nav>
             </header>
@@ -32,29 +33,98 @@
             <h2>Park Sang Young</h2>
         </section>
         <!-- About me -->
-        <section id="aboutme">
+        <section id="aboutme" class="section">
             <header>
                 <h1>About me</h1>
             </header>
             <article>
                 <div>
-                    <img src="./IMG/yong.png" alt="" class="yong">
+                    <img src="./IMG/yong.png" alt="프로필사진" class="yong">
                 </div>
                 <div>
-                    <h1>"안녕하세요! 사용자의 편의를 먼저 생각하는<br>
+                    <h1>"안녕하세요! 멈추지 않는<br>
                         프론트엔드 개발자 박상용 입니다."
                     </h1>
+                    <div>
+                        <p>
+                            안녕하세요<br>
+                            저는 프론트엔드 공부중인 박상용 입니다 :)<br>
+                            빠르게 발전하는 IT업계에 도전하기 위해,
+                        </p>
+                        <p>
+                            새로울 기술을 습득하고, 사용자의 편의성을 고려하며<br>
+                            창의적인 서비스를 개발하는 프론트엔드<br>
+                            개발자가 되는게 목표입니다.
+                        </p>
+                    </div>
+                    <img class="coding" src="./IMG/rick-muigo-UcuCPy3Pwus-unsplash.jpg" alt="코딩이미지">
+                    <h2>Thanks for reading...</h2>
                 </div>
             </article>
         </section>
+        <section id="archiving" class="section">
+
+        </section>
         <!-- 퀵 메뉴 -->
-            <div id="q_mn">
-                <ul class="nav">
-                    <li><a href="#">About me</a></li>
-                    <li><a href="#">Skill</a></li>
-                    <li><a href="#">Archiving</a></li>
-                    <li><a href="#">Projects</a></li>
-                </ul>
-            </div>
+        <div id="q_mn">
+            <ul class="nav">
+                <li><a href="#aboutme">About me</a></li>
+                <li><a href="#">Skill</a></li>
+                <li><a href="#">Archiving</a></li>
+                <li><a href="#">Projects</a></li>
+            </ul>
+        </div>
+        <!-- 퀵 메뉴 2  -->
+        <div id="q_icon">
+            <ul class="nav">
+                <li><a href="https://github.com/sangyoung23" target="_blank"><i class="fa fa-github"></i></a></li>
+                <li><a href="mailto:rmarkd2212@naver.com"><i class="fa fa-envelope"></i></a></li>
+                <a href="https://sangyounge.tistory.com" target="_blank"><img src="./IMG/tistory.png" alt="티스토리이미지"></a>
+            </ul>
+        </div>
+        <script>
+        window.onload = function(){
+            const elm = document.querySelectorAll('.section');
+            const elmCount = elm.length;
+            elm.forEach(function(item, index){
+              item.addEventListener('mousewheel', function(event){
+                event.preventDefault();
+                let delta = 0;
+      
+                if (!event) event = window.event;
+                if (event.wheelDelta) {
+                    delta = event.wheelDelta / 120;
+                    if (window.opera) delta = -delta;
+                } 
+                else if (event.detail)
+                    delta = -event.detail / 3;
+      
+                let moveTop = window.scrollY;
+                let elmSelector = elm[index];
+      
+                // wheel down : move to next section
+                if (delta < 0){
+                  if (elmSelector !== elmCount-1){
+                    try{
+                      moveTop = window.pageYOffset + elmSelector.nextElementSibling.getBoundingClientRect().top;
+                    }catch(e){}
+                  }
+                }
+                
+                // wheel up : move to previous section
+                else{
+                  if (elmSelector !== 0){
+                    try{
+                      moveTop = window.pageYOffset + elmSelector.previousElementSibling.getBoundingClientRect().top;
+                    }catch(e){}
+                  }
+                }
+      
+                const body = document.querySelector('html');
+                window.scrollTo({top:moveTop, left:0, behavior:'smooth'});
+              });
+            });
+          }
+        </script>
 </body>
 </html>
